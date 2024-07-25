@@ -59,7 +59,7 @@ def main():
     elapsed_time = 0
     tenclock = pygame.time.Clock()
 
-    star_add_increment = 5000 #ms
+    star_add_increment = 3000 #ms
     star_count = 0 #count til 2000...when to add the next star
 
     stars = [] #create empty list of enemies
@@ -71,16 +71,16 @@ def main():
     while run:
         star_count += clock.tick(60) #fps value, run max 60 times per second, return # of ms since last clock.tick
         elapsed_time = time.time() - start_time #current time - start time
-
+        
         if star_count > star_add_increment:
-            for _ in range(3):
+            for _ in range(4):
                 star = Star()
                 stars.append(star) #add more stars...total of 3
 
                 star_count = 0
 
             if tenclock.tick(10):
-                star_add_increment = max(2000, star_add_increment - 5)
+                star_add_increment = max(1000, star_add_increment - 100)
                 star_count = 0 # reset star count
             #ADD HERE: "level up" text/animation
             #ADD HERE: if statement...if star_add_increment == 2000, then "win game" and unlimited game begins
