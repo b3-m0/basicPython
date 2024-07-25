@@ -22,7 +22,7 @@ class Player(pygame.sprite.Sprite):
         
         self.rect = self.surf.get_rect()
         self.rect.x = WIDTH / 2
-        self.rect.bottom = HEIGHT / 2
+        self.rect.bottom = HEIGHT
 
 
     def update(self, keys):
@@ -31,20 +31,12 @@ class Player(pygame.sprite.Sprite):
             self.rect.move_ip(-PLAYER_VEL, 0)
         if keys[pygame.K_RIGHT]:
             self.rect.move_ip(PLAYER_VEL, 0)
-        if keys[pygame.K_UP]:
-            self.rect.move_ip(0, -PLAYER_VEL)
-        if keys[pygame.K_DOWN]:
-            self.rect.move_ip(0, PLAYER_VEL)
         
         #keep player on the screen
         if self.rect.left < 0:
             self.rect.left = 0
         if self.rect.right > WIDTH:
             self.rect.right = WIDTH
-        if self.rect.top <= 0:
-            self.rect.top = 0
-        if self.rect.bottom >= HEIGHT:
-            self.rect.bottom = HEIGHT
 
 #add here: flames shooting from behind
 #add here: animation of rocket moving
